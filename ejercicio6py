@@ -1,0 +1,46 @@
+class Persona:
+    def __init__(self, nombre="", edad=0, dni=""):
+        self.__nombre = nombre
+        self.__edad = edad
+        self.__dni = dni
+
+    def get_nombre(self):
+        return self.__nombre
+    
+    def set_nombre(self, nombre):
+        self.__nombre = nombre
+    
+    def get_edad(self):
+        return self.__edad
+    
+    def set_edad(self, edad):
+        if edad >= 0:
+            self.__edad = edad
+        else:
+            print("La edad no puede ser un valor negativo.")
+    
+    def get_dni(self):
+        return self.__dni
+    
+    def set_dni(self, dni):
+        if len(dni) == 8:
+            self.__dni = dni
+        else:
+            print("El DNI debe tener 8 caracteres.")
+    
+    def mostrar(self):
+        print("Nombre:", self.__nombre)
+        print("Edad:", self.__edad)
+        print("DNI:", self.__dni)
+    
+    def es_mayor_de_edad(self):
+        return self.__edad >= 18
+
+
+persona = Persona()
+persona.set_nombre("Barbara")
+persona.set_edad(45)
+persona.set_dni("99999999")
+
+persona.mostrar()
+print("¿Es mayor de edad?", persona.es_mayor_de_edad())
